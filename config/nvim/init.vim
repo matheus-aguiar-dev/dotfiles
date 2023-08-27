@@ -1,100 +1,47 @@
-source $HOME/.config/nvim/vim-plug/plugins.vim
+call plug#begin('~/.config/nvim/plugged')
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 
-set nocompatible
+" Navigating files
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim' " fuzzy finder, like cmd-P in VSCode
+Plug 'rbgrouleff/bclose.vim' " dependency for ranger
+Plug 'francoiscabrol/ranger.vim' " file browser using vim keybindings
+" tmux integration
+Plug 'christoomey/vim-tmux-navigator' " move between vim and tmux 
+" Should be paired with accompanying tmux plug
+" set -g @plugin 'christoomey/vim-tmux-navigator'
+"
 
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
+" colorschemes
+Plug 'arcticicestudio/nord-vim' " nice, but maybe too dark
+Plug 'bluz71/vim-nightfly-guicolors'
 
-" TODO: Load plugins here (pathogen or vundle)
+" statusline
+Plug 'bluz71/vim-moonfly-statusline' "minimal statusline
 
-" Turn on syntax highlighting
-syntax on
+" Editing
+Plug 'justinmk/vim-sneak' " jump around with s + 2 characters
+Plug 'tpope/vim-surround' " quicky wrap text with quotes/brackets/markup
+Plug 'tpope/vim-commentary' " commenting made easier
+Plug 'mattn/emmet-vim' " expand abbreviations to html/css
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " intellisense engine for vim
+"git
+Plug 'airblade/vim-gitgutter' " show git status in gutters
+Plug 'jreybert/vimagit' " visualise, stage hunks, write commit messages, in vim
+Plug 'tpope/vim-fugitive' " another vim visualiser, a lot faster than vimagit but also not as good for handling hunks 
 
-" For plugins to load correctly
-filetype plugin indent on
+"Writing
+Plug 'godlygeek/tabular' " aligning things
+Plug 'plasticboy/vim-markdown' " md syntax highlighting and things
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' } " browser-based realtime markdown preview
 
-" TODO: Pick a leader key
-" let mapleader = ","
+" JS/TS
+Plug 'chemzqm/vim-jsx-improve' " uses vim-javascript and vim-jsx-pretty
+Plug 'HerringtonDarkholme/yats.vim' " ts syntax highlighter
+Plug 'peitalin/vim-jsx-typescript' " highlighting for jsx in ts
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' } " for styled or css syntax in js/ts files
+" gql
+Plug 'jparise/vim-graphql' " graphql syntax highlighter
 
-" Security
-set modelines=0
-
-" Show line numbers
-set rnu
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-
-" Encoding
-set encoding=utf-8
-
-" Whitespace
-set wrap
-set textwidth=100
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set noshiftround
-
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
-
-" Allow hidden buffers
-set hidden
-
-" Rendering
-set ttyfast
-
-" Status bar
-set laststatus=2
-
-" Last line
-set showmode
-set showcmd
-
-" Searching
-nnoremap / /\v
-vnoremap / /\v
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmatch
-map <leader><space> :let @/=''<cr> " clear search
-
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-
-" Textmate holdouts
-
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
-
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
+call plug#end()
