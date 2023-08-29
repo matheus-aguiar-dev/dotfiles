@@ -1,3 +1,4 @@
+:nmap <space>e <Cmd>CocCommand explorer<CR>
 call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
