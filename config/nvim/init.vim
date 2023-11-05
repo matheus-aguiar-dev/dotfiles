@@ -1,4 +1,5 @@
 :nmap <space>e <Cmd>CocCommand explorer<CR>
+:inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
