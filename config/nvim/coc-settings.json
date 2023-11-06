@@ -1,5 +1,6 @@
 {
   "codeLens.enable": true,
   "java.referencesCodeLens.enabled": true,
-  "git.enableGutters": false
+  "git.enableGutters": false,
+  "coc.preferences.formatOnSave": true 
 }

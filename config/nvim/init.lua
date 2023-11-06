@@ -8,6 +8,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/completion-treesitter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'liuchengxu/vim-which-key'
 " Outros plugins...
 call plug#end()
 ]]
@@ -56,4 +57,10 @@ require'nvim-treesitter.configs'.setup {
 	},
 }
 
-
+vim.o.tabstop = 4    -- Number of spaces that a <Tab> in the file counts for
+vim.o.shiftwidth = 4  -- Number of spaces to use for each step of (auto)indent
+vim.o.expandtab = true -- Use spaces instead of tabs
+vim.o.autoindent = true -- Enable auto-indentation
+vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'la', '<Plug>(coc-codeaction)', { noremap = true, silent = true })
