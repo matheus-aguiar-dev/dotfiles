@@ -1,0 +1,5 @@
+{
+  "codeLens.enable": true,
+  "java.referencesCodeLens.enabled": true,
+  "git.enableGutters": false
+}
