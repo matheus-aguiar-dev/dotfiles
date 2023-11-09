@@ -1,4 +1,5 @@
 -- Carregar plugin 'nvim-treesitter' usando vim-plug
+vim.g.mapleader = "<Space>"
 vim.api.nvim_set_keymap('n', '<space>e', '<Cmd>CocCommand explorer<CR>', { noremap = true, silent = true })
 vim.cmd [[
 :inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
@@ -9,6 +10,10 @@ Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/completion-treesitter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vim-which-key'
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 " Outros plugins...
 call plug#end()
 ]]
@@ -63,4 +68,5 @@ vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.autoindent = true -- Enable auto-indentation
 vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<super>gf', '<Plug>(coc-implementation)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'la', '<Plug>(coc-codeaction)', { noremap = true, silent = true })
